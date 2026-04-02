@@ -266,6 +266,104 @@
       margin-top: var(--space-sm);
     }
 
+    /* Instagram / Work Section - Black Mode */
+    .work-section {
+      background: var(--black);
+      padding: var(--space-xl) var(--space-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(244, 123, 48, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .work-section h2 {
+      color: var(--white);
+    }
+
+    .work-section .section-subtitle {
+      color: var(--cream);
+    }
+
+    .work-section .section-intro {
+      color: var(--cream);
+      font-size: var(--text-md);
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: var(--space-lg);
+      opacity: var(--opacity-medium);
+    }
+
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .instagram-embed-wrap {
+      background: #1a1a1a;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .instagram-embed-wrap:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(244, 123, 48, 0.2);
+    }
+
+    .instagram-embed-wrap .instagram-media {
+      margin: 0 !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+      border-radius: 0 !important;
+    }
+
+    .work-ig-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: var(--space-lg);
+      color: var(--orange);
+      font-weight: 700;
+      font-size: var(--text-md);
+      text-decoration: none;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 2px;
+      transition: opacity var(--transition-fast);
+    }
+
+    .work-ig-link:hover {
+      opacity: 0.75;
+    }
+
+    @media (max-width: 1024px) {
+      .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .instagram-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-section {
+        padding: var(--space-lg) calc(var(--space-sm) * 1.5);
+      }
+    }
+
     /* Why ONIX Section - Deep Red Mode */
     .why-section {
       background: var(--deep-red);
@@ -542,6 +640,89 @@
     </div>
   </section>
 
+  <!-- Our Work / Instagram Section -->
+  <section class="work-section">
+    <div class="container">
+      <h2 class="headline section-title">OUR WORK</h2>
+      <p class="headline-cn section-subtitle">我们的作品</p>
+      <p class="work-section section-intro">
+        See what we create — short videos, brand content, and social campaigns that move the needle.
+      </p>
+
+      <div class="instagram-grid">
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DWL_xE3idSH/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DVnu5bkiXOS/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DUx2b8gD88j/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DUlFiP8iePe/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DUIbYyKicRb/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DTpkmuNCTh-/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DThySIBiV4S/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DTVMc66ia50/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="instagram-embed-wrap">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DTKzBs6CWOW/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+      </div>
+
+      <a href="https://www.instagram.com/onixcreativemarketing/" target="_blank" rel="noopener noreferrer"
+        class="work-ig-link">
+        View all our work on Instagram →
+      </a>
+    </div>
+  </section>
+
   <!-- Why ONIX Section -->
   <section class="why-section">
     <div class="container">
@@ -605,6 +786,7 @@
     </div>
   </section>
 
+  <script async src="//www.instagram.com/embed.js"></script>
   <script>
     // Intersection Observer for fade-in animations
     const observerOptions = {
