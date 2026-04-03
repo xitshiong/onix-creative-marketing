@@ -462,11 +462,30 @@
       opacity: var(--opacity-medium);
     }
 
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-md);
+    .instagram-marquee-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
       margin-top: var(--space-lg);
+      /* Fade out edges for premium carousel look */
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .instagram-marquee-track {
+      display: flex;
+      gap: var(--space-md);
+      width: max-content;
+      animation: marquee-scroll 40s linear infinite;
+    }
+
+    .instagram-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - (var(--space-md) / 2))); }
     }
 
     .instagram-embed-wrap {
@@ -479,6 +498,8 @@
       aspect-ratio: 9 / 16;
       transform: translateZ(0);
       /* Fix clipping issues on some browsers */
+      width: 320px;
+      flex-shrink: 0;
     }
 
     .instagram-embed-wrap:hover {
@@ -518,14 +539,14 @@
     }
 
     @media (max-width: 1024px) {
-      .instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .instagram-embed-wrap {
+        width: 280px;
       }
     }
 
     @media (max-width: 640px) {
-      .instagram-grid {
-        grid-template-columns: 1fr;
+      .instagram-embed-wrap {
+        width: 240px;
       }
 
       .work-section {
@@ -887,53 +908,65 @@
         See what we create — short videos, brand content, and social campaigns that move the needle.
       </p>
 
-      <div class="instagram-grid">
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DWL_xE3idSH/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
+      <div class="instagram-marquee-container">
+        <div class="instagram-marquee-track">
+          <!-- set 1 -->
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DWL_xE3idSH/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DVnu5bkiXOS/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DUx2b8gD88j/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DUlFiP8iePe/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DUIbYyKicRb/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DTpkmuNCTh-/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DThySIBiV4S/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DTVMc66ia50/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DTKzBs6CWOW/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <!-- set 2 (duplicate to create infinite seamless loop) -->
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DWL_xE3idSH/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DVnu5bkiXOS/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DUx2b8gD88j/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DUlFiP8iePe/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DUIbYyKicRb/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DTpkmuNCTh-/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DThySIBiV4S/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DTVMc66ia50/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
+          <div class="instagram-embed-wrap">
+            <iframe src="https://www.instagram.com/p/DTKzBs6CWOW/embed/?theme=dark&hidecaption=true" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          </div>
         </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DVnu5bkiXOS/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DUx2b8gD88j/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DUlFiP8iePe/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DUIbYyKicRb/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DTpkmuNCTh-/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DThySIBiV4S/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DTVMc66ia50/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
-        <div class="instagram-embed-wrap">
-          <iframe src="https://www.instagram.com/p/DTKzBs6CWOW/embed/?theme=dark&hidecaption=true" frameborder="0"
-            scrolling="no" allowtransparency="true"></iframe>
-        </div>
-
       </div>
 
       <a href="https://www.instagram.com/onixcreativemarketing/" target="_blank" rel="noopener noreferrer"
