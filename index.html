@@ -192,7 +192,7 @@
     @media (max-width: 768px) {
       .nav-links {
         position: fixed;
-        top: 70px;
+        top: 65px;
         left: 0;
         right: 0;
         background: rgba(17, 17, 17, 0.98);
@@ -215,12 +215,20 @@
         padding: var(--space-sm) 0;
       }
 
+      .nav-links a {
+        font-size: var(--text-base);
+      }
+
       .mobile-menu-toggle {
         display: block;
       }
 
       nav {
-        padding: calc(var(--space-sm) * 1) var(--space-sm);
+        padding: calc(var(--space-sm) * 0.9) calc(var(--space-sm) * 1.25);
+      }
+
+      .logo {
+        font-size: var(--text-xl);
       }
     }
 
@@ -247,8 +255,7 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      padding: var(--space-md);
-      padding-top: calc(var(--space-md) + 80px);
+      padding: calc(var(--space-xl) * 1.5) var(--space-md) var(--space-md);
     }
 
     .hero::before {
@@ -466,23 +473,30 @@
       background: #1a1a1a;
       border-radius: var(--radius-sm);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       transition: transform var(--transition-base), box-shadow var(--transition-base);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      position: relative;
+      aspect-ratio: 9 / 16;
+      transform: translateZ(0);
+      /* Fix clipping issues on some browsers */
     }
 
     .instagram-embed-wrap:hover {
-      transform: translateY(-4px);
+      transform: translateY(-4px) translateZ(0);
       box-shadow: 0 16px 40px rgba(244, 123, 48, 0.2);
     }
 
-    .instagram-embed-wrap .instagram-media {
+    .instagram-embed-wrap iframe {
+      position: absolute;
+      top: -54px;
+      /* Crop top Instagram header */
+      left: -2px;
+      /* Crop left border */
+      width: calc(100% + 4px) !important;
+      height: calc(100% + 112px) !important;
+      /* Crop top (54px) and bottom (58px) UI */
+      border: none !important;
       margin: 0 !important;
-      min-width: 100% !important;
-      max-width: 100% !important;
-      border-radius: 0 !important;
     }
 
     .work-ig-link {
@@ -666,8 +680,35 @@
     /* Responsive */
     @media (max-width: 768px) {
       .hero {
-        min-height: 90vh;
-        padding: calc(var(--space-sm) * 1.5);
+        min-height: 100svh;
+        padding: calc(var(--space-xl) * 1.2) calc(var(--space-sm) * 1.5) var(--space-lg);
+        align-items: flex-end;
+      }
+
+      .hero h1 {
+        font-size: clamp(5rem, 22vw, 8rem);
+        line-height: 0.88;
+        margin-bottom: var(--space-md);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.1rem, 5vw, 1.6rem);
+        margin-bottom: var(--space-md);
+      }
+
+      .pill-group {
+        gap: 0.5rem;
+      }
+
+      .pill {
+        font-size: 0.75rem;
+        padding: 0.5rem 1.25rem;
+      }
+
+      .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: calc(var(--space-sm) * 1.25) var(--space-md);
       }
 
       .grid-section,
@@ -676,9 +717,37 @@
         padding: var(--space-lg) calc(var(--space-sm) * 1.5);
       }
 
+      .section-title {
+        font-size: clamp(2.5rem, 14vw, 5rem);
+        margin-bottom: var(--space-md);
+      }
+
+      .section-subtitle {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        margin-bottom: var(--space-md);
+      }
+
       .services-grid,
       .reasons-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      .service-card,
+      .reason-card {
+        padding: var(--space-md);
+      }
+
+      .service-card h3 {
+        font-size: var(--text-lg);
+      }
+
+      .cta-section h2 {
+        font-size: clamp(2.5rem, 14vw, 6rem);
+      }
+
+      .cta-section p {
+        font-size: var(--text-base);
       }
 
       .halftone-bg {
@@ -821,66 +890,48 @@
       <div class="instagram-grid">
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DWL_xE3idSH/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DWL_xE3idSH/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DVnu5bkiXOS/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DVnu5bkiXOS/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DUx2b8gD88j/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DUx2b8gD88j/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DUlFiP8iePe/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DUlFiP8iePe/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DUIbYyKicRb/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DUIbYyKicRb/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DTpkmuNCTh-/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DTpkmuNCTh-/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DThySIBiV4S/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DThySIBiV4S/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DTVMc66ia50/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DTVMc66ia50/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
         <div class="instagram-embed-wrap">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/p/DTKzBs6CWOW/"
-            data-instgrm-version="14">
-          </blockquote>
+          <iframe src="https://www.instagram.com/p/DTKzBs6CWOW/embed/?theme=dark&hidecaption=true" frameborder="0"
+            scrolling="no" allowtransparency="true"></iframe>
         </div>
 
       </div>
@@ -954,8 +1005,6 @@
       </a>
     </div>
   </section>
-
-  <script async src="//www.instagram.com/embed.js"></script>
   <script>
     // Hide header on scroll down, show on scroll up
     let lastScroll = 0;
